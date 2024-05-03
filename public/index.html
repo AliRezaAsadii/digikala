@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Book - Login Page</title>
+    <link rel="stylesheet" href="./styles/app.css">
+    <script type="text/javascript">
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+        } else {
+        document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+<body class="font-Nunito text-gray-800 dark:bg-gray-800 dark:text-zinc-50">
+<svg class="hidden">
+    <symbol id="logo" width="54" height="54" viewBox="0 0 54 54" fill="none">
+        <g  clip-path="url(#clip0_303_3613)">
+        <rect id="Rectangle 19" width="54" height="54" rx="12" fill="#14B8A6"/>
+        <g id="assignment" clip-path="url(#clip1_303_3613)">
+        <path id="Vector" d="M39.25 11.25H31.935C31.2 9.22 29.275 7.75 27 7.75C24.725 7.75 22.8 9.22 22.065 11.25H14.75C12.825 11.25 11.25 12.825 11.25 14.75V39.25C11.25 41.175 12.825 42.75 14.75 42.75H39.25C41.175 42.75 42.75 41.175 42.75 39.25V14.75C42.75 12.825 41.175 11.25 39.25 11.25ZM27 11.25C27.9625 11.25 28.75 12.0375 28.75 13C28.75 13.9625 27.9625 14.75 27 14.75C26.0375 14.75 25.25 13.9625 25.25 13C25.25 12.0375 26.0375 11.25 27 11.25ZM30.5 35.75H18.25V32.25H30.5V35.75ZM35.75 28.75H18.25V25.25H35.75V28.75ZM35.75 21.75H18.25V18.25H35.75V21.75Z" fill="#FAFAFA"/>
+        </g>
+        </g>
+        <defs>
+        <clipPath id="clip0_303_3613">
+        <rect width="54" height="54" fill="white"/>
+        </clipPath>
+        <clipPath id="clip1_303_3613">
+        <rect width="42" height="42" fill="currentColor" transform="translate(6 6)"/>
+        </clipPath>
+        </defs>
+    </symbol>
+    <symbol id="bars-3" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+    </symbol>
+    <symbol id="facebook" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <g clip-path="url(#clip0_303_3677)">
+        <path d="M28 0H4C1.794 0 0 1.794 0 4V28C0 30.206 1.794 32 4 32H28C30.206 32 32 30.206 32 28V4C32 1.794 30.206 0 28 0Z" fill="#1976D2"/>
+        <path d="M27 16H22V12C22 10.896 22.896 11 24 11H26V6H22C18.686 6 16 8.686 16 12V16H12V21H16V32H22V21H25L27 16Z" fill="#FAFAFA"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_303_3677">
+        <rect width="32" height="32" fill="white"/>
+        </clipPath>
+        </defs>
+    </symbol>
+    <symbol id="twitter" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <g clip-path="url(#clip0_303_3680)">
+        <path d="M32 0H0V32H32V0Z" fill="#4DA0F1"/>
+        <path d="M4.23937 23.7208C6.36905 25.0714 8.89531 25.8531 11.6034 25.8531C19.2113 25.8531 25.3785 19.6852 25.3785 12.078C25.3785 11.888 25.3745 11.6995 25.3672 11.5115C25.6424 11.295 27.3443 9.93087 27.7615 9.05393C27.7615 9.05393 26.3794 9.6283 25.0267 9.76361C25.0241 9.76361 25.0208 9.76424 25.0181 9.76424C25.0181 9.76424 25.0208 9.76291 25.0254 9.75961C25.15 9.67633 26.8925 8.49016 27.1285 7.07683C27.1285 7.07683 26.1509 7.59861 24.7822 8.05509C24.5556 8.13037 24.3184 8.20437 24.0738 8.27298C23.1915 7.33137 21.9375 6.74365 20.5454 6.74365C17.8753 6.74365 15.7116 8.90668 15.7116 11.5748C15.7116 11.9513 15.7549 12.3177 15.8369 12.6696C15.4637 12.6543 9.78159 12.3357 5.91601 7.65451C5.91601 7.65451 3.60573 10.8084 7.29275 14.0516C7.29275 14.0516 6.17195 14.007 5.20499 13.4292C5.20499 13.4292 4.84984 17.2501 9.02528 18.2271C9.02528 18.2271 8.20367 18.5383 6.89294 18.3164C6.89294 18.3164 7.62593 21.4037 11.3356 21.6922C11.3356 21.6922 8.40218 24.3422 4.23804 23.7204L4.23937 23.7208Z" fill="white"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_303_3680">
+        <rect width="32" height="32" rx="6" fill="white"/>
+        </clipPath>
+        </defs>
+    </symbol>
+    <symbol id="copy-right" width="21" height="20" viewBox="0 0 21 20" fill="none">
+        <path d="M8.58 8.86C8.63 8.53 8.74 8.24 8.88 7.99C9.02 7.74 9.22 7.53 9.47 7.37C9.71 7.22 10.01 7.15 10.38 7.14C10.61 7.15 10.82 7.19 11.01 7.27C11.21 7.36 11.39 7.48 11.53 7.63C11.67 7.78 11.78 7.96 11.87 8.16C11.96 8.36 12 8.58 12.01 8.8H13.8C13.78 8.33 13.69 7.9 13.52 7.51C13.35 7.12 13.12 6.78 12.82 6.5C12.52 6.22 12.16 6 11.74 5.84C11.32 5.68 10.86 5.61 10.35 5.61C9.7 5.61 9.13 5.72 8.65 5.95C8.17 6.18 7.77 6.48 7.45 6.87C7.13 7.26 6.89 7.71 6.74 8.23C6.59 8.75 6.5 9.29 6.5 9.87V10.14C6.5 10.72 6.58 11.26 6.73 11.78C6.88 12.3 7.12 12.75 7.44 13.13C7.76 13.51 8.16 13.82 8.64 14.04C9.12 14.26 9.69 14.38 10.34 14.38C10.81 14.38 11.25 14.3 11.66 14.15C12.07 14 12.43 13.79 12.74 13.52C13.05 13.25 13.3 12.94 13.48 12.58C13.66 12.22 13.77 11.84 13.78 11.43H11.99C11.98 11.64 11.93 11.83 11.84 12.01C11.75 12.19 11.63 12.34 11.48 12.47C11.33 12.6 11.16 12.7 10.96 12.77C10.77 12.84 10.57 12.86 10.36 12.87C10 12.86 9.7 12.79 9.47 12.64C9.22 12.48 9.02 12.27 8.88 12.02C8.74 11.77 8.63 11.47 8.58 11.14C8.53 10.81 8.5 10.47 8.5 10.14V9.87C8.5 9.52 8.53 9.19 8.58 8.86ZM10.5 0C4.98 0 0.5 4.48 0.5 10C0.5 15.52 4.98 20 10.5 20C16.02 20 20.5 15.52 20.5 10C20.5 4.48 16.02 0 10.5 0ZM10.5 18C6.09 18 2.5 14.41 2.5 10C2.5 5.59 6.09 2 10.5 2C14.91 2 18.5 5.59 18.5 10C18.5 14.41 14.91 18 10.5 18Z" fill="#282846"/>
+    </symbol>
+    <symbol id="moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    </symbol>
+    <symbol id="sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+    </symbol>
+</svg>
+
+<header>
+    <div class="container">
+        <div class="flex justify-between my-5">
+            <div class="flex items-center">
+                <div class="pr-2.5">
+                    <svg class="w-3.37 h-3.37">
+                        <use href="#logo"></use>
+                    </svg>
+                </div>
+                <h4 class="font-MontserratSemiBold leading-tight text-lg text-teal-500 w-[55px] cursor-default">Tasks Book</h4>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="toggle-theme cursor-pointer">
+                    <svg class="inline-block dark:hidden w-8 h-8">
+                        <use href="#moon"></use>
+                    </svg>
+                    <svg class="hidden dark:inline-block w-8 h-8">
+                        <use href="#sun"></use>
+                    </svg>
+                </div>
+                <a href="#">
+                    <svg class="w-11 h-11">
+                        <use href="#bars-3"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="flex items-center justify-center mt-[150px]">
+    <div class="p-5 h-[375px] w-[375px] rounded-xl shadow-2xl dark:bg-slate-800">
+        <form action="" class=" items-center">
+            <div class="text-center mb-5">
+                <span class="text-teal-500 font-NunitoSemiBold">Login Form</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="border w-full pl-4 pr-1 py-1.5 mb-5 rounded-lg">
+                    <input type="text" placeholder="E-Mail" name="uname" required class="dark:bg-slate-800 focus:dark:bg-slate-800 focus:outline-none w-full">
+                </div>
+                <div class="border w-full pl-4 pr-1 py-1.5 mb-5 rounded-lg">
+                    <input type="password" placeholder="Password" name="psw" required class="dark:bg-slate-800 focus:dark:bg-slate-800 focus:outline-none w-full">
+                </div>
+        
+                <button class="block px-6 py-1.5 text-zinc-50 font-NunitoSemiBold bg-teal-500 hover:bg-teal-600 mb-5 rounded-lg" type="submit">Login</button>
+                
+                <div class="mb-5 text-xs sm:text-base">
+                    <span class="psw">Don't have an account yet? <a href="#" class="text-teal-500">Registration</a></span>
+                </div>
+                <div class="relative login-with">
+                    <span class="font-NunitoSemiBold text-gray-800/30 dark:text-white/30">Login With</span>
+                </div>
+                <div class="flex items-center gap-x-5 mt-5">
+                    <a href="#">
+                        <svg class="w-8 h-8">
+                            <use href="#facebook"></use>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg class="w-8 h-8 rounded-[3px]">
+                            <use href="#twitter"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="absolute bottom-5 right-0 left-0">
+        <div class="flex items-center justify-center gap-4 text-gray-800/30">
+            <span>© copyright 2021</span>
+            <span>All rights reserved</span>
+        </div>
+    </div>
+</footer>
+
+
+<script src="./scripts/app.js"></script>
+</body>
+</html>
