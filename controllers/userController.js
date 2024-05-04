@@ -1,6 +1,6 @@
 "use strict";
 
-const User = require("./../models/userModel");
+const User = require("./../models/userModels");
 
 exports.getAllUser = async (req, res) => {
   try {
