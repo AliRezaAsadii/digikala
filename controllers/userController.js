@@ -1,10 +1,15 @@
 "use strict";
 
 const User = require("./../models/userModels");
+const APIFeatures = require('./../utils/userAPIFeature');
 
 exports.getAllUser = async (req, res) => {
   try {
-    const users = await User.find();
+    const features = new APIFeatures(User.find(), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+    const users = await features.query;
 
     res.status(200).json({
       status: "success",
