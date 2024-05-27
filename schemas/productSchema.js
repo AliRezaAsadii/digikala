@@ -31,9 +31,9 @@ const productSchema = mongoose.Schema({
     default: Date.now(),
     select: false,
   },
-  cover: [joi.string().required()],
-  image: [joi.string()],
-  sellers: [joi.object().required()],
+  // cover: [joi.String().required()],
+  // image: [joi.String()],
+  // sellers: [joi.Object().required()],
   digiClubPoint: {
     type: Number,
     trim: true,
@@ -43,4 +43,4 @@ const productSchema = mongoose.Schema({
   },
 });
 
-exports.productSchema = productSchema
+exports.productSchema = productSchema;
