@@ -8,11 +8,15 @@ const productSchema = mongoose.Schema({
     type: String,
     trim: true,
     required: [true, "A product most have name"],
+    minlength: [3, "A product must have more or equal then 3 characters"],
+    maxlength: [20, "A username must have less or equal then 20 characters"],
   },
   price: {
     type: Number,
     trim: true,
     required: [true, "A product most have price"],
+    min: [4, "A price must have more or equal then 3 characters"],
+    max: [11, "A price must have less or equal then 11 characters"],
   },
   category: {
     type: Number,
@@ -22,6 +26,8 @@ const productSchema = mongoose.Schema({
   discount: {
     type: Number,
     trim: true,
+    min: [4, "A discount must have more or equal then 3 characters"],
+    max: [11, "A discount must have less or equal then 11 characters"],
   },
   attributes: [Object],
   comments: [Object],
