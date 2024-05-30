@@ -1,10 +1,16 @@
 "use strict";
 
 const Product = require("./../models/productModel");
+const APIFeatures = require("./../utils/productAPIFeature");
 
 exports.getAllProduct = async (req, res) => {
   try {
-    const products = await Product.find();
+    const features = new APIFeatures(User.find(), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
+    const products = await features.query;
 
     res.status(200).json({
       status: "success",
