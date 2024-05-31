@@ -18,7 +18,8 @@ const categorySchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now(),
+    select: false,
   },
 });
 
-exports.categorySchema = categorySchema
+exports.categorySchema = categorySchema;
