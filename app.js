@@ -5,6 +5,7 @@ const morgan = require("morgan");
 
 const userRouter = require("./routes/userRouter");
 const productRouter = require("./routes/productRouter");
+const categoryRouter = require("./routes/categoryRouter");
 
 
 const app = express();
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 
 app.use("/digikala/users", userRouter);
 app.use("/digikala/product", productRouter);
+app.use("/digikala/category", categoryRouter);
 
 process.env.NODE_ENV === "development" && app.use(morgan("dev"));
 
